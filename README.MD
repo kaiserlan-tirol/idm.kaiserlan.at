@@ -1,12 +1,33 @@
-## Installation
+<<<<<<< HEAD
+# Identity Management System for KaiserLAN
+=======
+# Identity Management System for KLMS 
 
+Identity management and authorization provider which is used by KLMS.
+
+## Installation
+>>>>>>> upstream/develop
+
+Identity Management System based on KRRUg/IDM.
+
+## Installation
 ```
 composer install
 php bin/console doctrine:database:create
-php bin/console doctrine:migrations:migrate
+php bin/console doctrine:schema:create
+# Required once migrations exist in src/Migrations
+# php bin/console doctrine:migrations:migrate
 #Load Fixtures
 php bin/console doctrine:fixtures:load
 ```
+
+### Run IDM
+Once all setup steps are done start the Symfony development server using
+```
+symfony server:start --port=8001 --no-tls
+```
+Open the printed URL in your browser and log in with a superuser credential
+
 
 ## Fixtures
 User Example:
@@ -47,3 +68,12 @@ Disable a User: `php bin/console app:user:disable`
 Enable a User: `php bin/console app:user:enable`  
 Edit a User: `php bin/console app:user:edit`  
 List one/all Users: `php bin/console app:user:list`  
+
+# idm.kaiserlan.at
+
+Update/setup .. not sure how to run migrations yet, initial setup was done with db dump. php needs to be made available on the host, then we can run the migrations from above.
+
+./deploy.sh
+
+Import Lansuite users: `php bin/console doctrine:fixtures:load --group=lansuite --append && php bin/console app:user:list`
+

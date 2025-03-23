@@ -40,6 +40,8 @@ class UserEditCommand extends Command
         $this
             ->addOption('website', null, InputOption::VALUE_REQUIRED, 'Edit Website')
             ->addOption('steamAccount', null, InputOption::VALUE_REQUIRED, 'Edit steamAccount')
+            ->addOption('discordAccount', null, InputOption::VALUE_REQUIRED, 'Edit discordAccount')
+            ->addOption('battlenetAccount', null, InputOption::VALUE_REQUIRED, 'Edit battlenetAccount')
             ->addOption('hardware', null, InputOption::VALUE_REQUIRED, 'Edit Hardware')
             ->addOption('statements', null, InputOption::VALUE_REQUIRED, 'Edit Statements');
     }

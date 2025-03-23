@@ -26,6 +26,8 @@ class UserControllerCreateTest extends AbstractControllerTest
     "phone": "+43 664/1234567",
     "gender": "f",
     "steamAccount": "fup",
+    "battlenetAccount": "fap",
+    "discordAccount": "fip",
     "hardware": "some old Laptop",
     "statements": "fup fup fup"
 }
@@ -51,6 +53,8 @@ JSON;
         $this->assertArrayHasKey("emailConfirmed", $result);
         $this->assertArrayHasKey("isSuperadmin", $result);
         $this->assertArrayHasKey("steamAccount", $result);
+        $this->assertArrayHasKey("battlenetAccount", $result);
+        $this->assertArrayHasKey("discordAccount", $result);
         $this->assertArrayHasKey("registeredAt", $result);
         $this->assertArrayHasKey("modifiedAt", $result);
         $this->assertArrayHasKey("hardware", $result);

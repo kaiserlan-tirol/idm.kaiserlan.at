@@ -1,0 +1,29 @@
+name: Deploy Symfony App
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PHP, Composer, Node.js, and npm
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer
+        # You may need to add a separate step to install Node.js and npm
+
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --no-ansi --no-progress --no-scripts
+
+      - name: Deploy via rsync
+        run: |
+          ./deploy.sh
