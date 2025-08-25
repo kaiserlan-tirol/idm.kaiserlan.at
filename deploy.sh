@@ -14,4 +14,5 @@ echo "Rsync data, clearing cache"
 ssh -p 822 headshot_ftp@kdn10.futureweb.at "rm -rf /idm.headshot.at/var/cache/*"
 
 # rsync -avzh --exclude='/.env' --exclude='/.git' --exclude='/node_modules' * -e "ssh -p 822" headshot_ftp@idm.headshot.at:/idm.headshot.at/
-echo "Rsync data"
+echo "Rsynced data, clearing cache"
+ssh -p 822 headshot_ftp@neu.headshot.at "rm -rf /idm.kaiserlan.at/var/cache/* && /.phpenv/versions/8.3/bin/php /idm.kaiserlan.at/bin/console doctrine:schema:update --force --complete"
