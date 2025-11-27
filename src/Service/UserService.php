@@ -104,8 +104,14 @@ class UserService
         if (null !== $userdata['website']) {
             $user->setWebsite($userdata['website']);
         }
+        if (null !== $userdata['discordAccount']) {
+            $user->setDiscordAccount($userdata['discordAccount']);
+        }
         if (null !== $userdata['steamAccount']) {
             $user->setSteamAccount($userdata['steamAccount']);
+        }
+        if (null !== $userdata['battlenetAccount']) {
+            $user->setBattlenetAccount($userdata['battlenetAccount']);
         }
         if (null !== $userdata['hardware']) {
             $user->setHardware($userdata['hardware']);
