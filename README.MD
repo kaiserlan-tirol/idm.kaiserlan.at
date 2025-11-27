@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 # Identity Management System for KaiserLAN
-=======
-# Identity Management System for KLMS 
 
 Identity management and authorization provider which is used by KLMS.
-
-## Installation
->>>>>>> upstream/develop
-
-Identity Management System based on KRRUg/IDM.
 
 ## Installation
 ```
