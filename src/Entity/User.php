@@ -156,6 +156,18 @@ class User
     #[Groups(['read'])]
     private ?\DateTimeInterface $lastLoginAt = null;
 
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[Groups(['read', 'write'])]
+    private ?string $preferredPaymentMethod = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    #[Groups(['read'])]
+    private ?\DateTimeInterface $paymentDetailsVerifiedAt = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    #[Groups(['read', 'write'])]
+    private ?int $dogTagGroup = null;
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\UserClan', cascade: ['all'])]
     #[Groups(['read'])]
     private Collection $clans;
@@ -473,6 +485,44 @@ class User
     {
         $this->lastLoginAt = $lastLoginAt;
 
+        return $this;
+    }
+
+    public function getPreferredPaymentMethod(): ?string
+    {
+        return $this->preferredPaymentMethod;
+    }
+
+    public function setPreferredPaymentMethod(?string $preferredPaymentMethod): self
+    {
+        $this->preferredPaymentMethod = $preferredPaymentMethod;
+        return $this;
+    }
+
+    public function getPaymentDetailsVerifiedAt(): ?\DateTimeInterface
+    {
+        return $this->paymentDetailsVerifiedAt;
+    }
+
+    public function setPaymentDetailsVerifiedAt(?\DateTimeInterface $paymentDetailsVerifiedAt): self
+    {
+        $this->paymentDetailsVerifiedAt = $paymentDetailsVerifiedAt;
+        return $this;
+    }
+
+    public function hasVerifiedPaymentDetails(): bool
+    {
+        return $this->paymentDetailsVerifiedAt !== null;
+    }
+
+    public function getDogTagGroup(): ?int
+    {
+        return $this->dogTagGroup;
+    }
+
+    public function setDogTagGroup(?int $dogTagGroup): self
+    {
+        $this->dogTagGroup = $dogTagGroup;
         return $this;
     }
 
