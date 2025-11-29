@@ -1,4 +1,4 @@
-# Identity Management System for KLMS 
+# Identity Management System for KaiserLAN
 
 Identity management and authorization provider which is used by KLMS.
 
