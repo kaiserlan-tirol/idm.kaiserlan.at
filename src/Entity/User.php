@@ -164,6 +164,10 @@ class User
     #[Groups(['read'])]
     private ?\DateTimeInterface $paymentDetailsVerifiedAt = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    #[Groups(['read', 'write'])]
+    private ?int $dogTagGroup = null;
+
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: 'App\Entity\UserClan', cascade: ['all'])]
     #[Groups(['read'])]
     private Collection $clans;
@@ -509,6 +513,17 @@ class User
     public function hasVerifiedPaymentDetails(): bool
     {
         return $this->paymentDetailsVerifiedAt !== null;
+    }
+
+    public function getDogTagGroup(): ?int
+    {
+        return $this->dogTagGroup;
+    }
+
+    public function setDogTagGroup(?int $dogTagGroup): self
+    {
+        $this->dogTagGroup = $dogTagGroup;
+        return $this;
     }
 
     #[ORM\PrePersist]
